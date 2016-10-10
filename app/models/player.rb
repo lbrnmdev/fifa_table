@@ -9,7 +9,11 @@ class Player < ApplicationRecord
     # winning percentage calculated as ratio of wins to games played
     # drawn games are considered half a win
     def calculate_winning_percentage
-      float_value = (self.won + (0.5*self.drawn))/(self.won + self.lost + self.drawn)
-      self.winning_percentage = (float_value.nil? || float_value.nan?) ? 0 : float_value
+      games_played = self.won + self.lost + self.drawn
+      if games_played == 0
+        self.winning_percentage = 0.0
+      else
+        self.winning_percentage = (self.won + (0.5*self.drawn))/games_played
+      end
     end
 end
