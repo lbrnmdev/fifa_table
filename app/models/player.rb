@@ -1,8 +1,10 @@
 class Player < ApplicationRecord
   before_save :calculate_winning_percentage
-  # TODO presence validations for name, win, lost, drawn, winning_percentage
-  # TODO non-negative value validations for win, lost, drawn
-  # TODO 0 <= p <= 1 validation for winning_percentage
+  validates :name, presence: true
+  validates :won, numericality: { greater_than_or_equal_to: 0 }
+  validates :lost, numericality: { greater_than_or_equal_to: 0 }
+  validates :drawn, numericality: { greater_than_or_equal_to: 0 }
+  validates :winning_percentage, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 1 }
 
   private
 
