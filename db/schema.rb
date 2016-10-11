@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009220205) do
+ActiveRecord::Schema.define(version: 20161011001138) do
+
+  create_table "matches", force: :cascade do |t|
+    t.integer  "result"
+    t.integer  "player1_id"
+    t.integer  "player2_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["player1_id"], name: "index_matches_on_player1_id"
+    t.index ["player2_id"], name: "index_matches_on_player2_id"
+  end
 
   create_table "players", force: :cascade do |t|
     t.string   "name"
