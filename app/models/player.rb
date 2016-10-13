@@ -8,7 +8,7 @@ class Player < ApplicationRecord
 
   # return all the player's matches
   def matches
-    Match.where("player1_id = ? OR player2_id = ?", self.id, self.id)
+    Match.where("winning_player_id = ? OR losing_player_id = ?", self.id, self.id)
   end
 
   private
