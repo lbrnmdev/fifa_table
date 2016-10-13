@@ -6,6 +6,11 @@ class Player < ApplicationRecord
   validates :drawn, numericality: { greater_than_or_equal_to: 0 }
   validates :winning_percentage, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 1 }
 
+  # return all the player's matches
+  def matches
+    Match.where("player1_id = ? OR player2_id = ?", self.id, self.id)
+  end
+
   private
 
     # winning percentage calculated as ratio of wins to games played
