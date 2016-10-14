@@ -6,9 +6,21 @@ class Player < ApplicationRecord
   validates :drawn, numericality: { greater_than_or_equal_to: 0 }
   validates :winning_percentage, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 1 }
 
+  # Keep this to be used in building forms maybe?
+  has_many :won_matches, class_name: "Match", foreign_key: :winning_player_id
+  has_many :lost_matches, class_name: "Match", foreign_key: :losing_player_id
+
   # return all the player's matches
   def matches
     Match.where("winning_player_id = ? OR losing_player_id = ?", self.id, self.id)
+  end
+
+  def matches_won_against opponent
+    Match.where("winning_player_id = ? AND losing_player_id = ?", self.id, opponent.id)
+  end
+
+  def matches_lost_to opponent
+    Match.where("losing_player_id = ? AND winning_player_id = ?", self.id, opponent.id)
   end
 
   private
