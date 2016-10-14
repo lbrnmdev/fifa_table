@@ -1,6 +1,6 @@
 class Player < ApplicationRecord
   before_save :calculate_winning_percentage
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: {case_sensitive: false}
   validates :won, numericality: { greater_than_or_equal_to: 0 }
   validates :lost, numericality: { greater_than_or_equal_to: 0 }
   validates :drawn, numericality: { greater_than_or_equal_to: 0 }
