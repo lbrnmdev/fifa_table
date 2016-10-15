@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161013224158) do
+ActiveRecord::Schema.define(version: 20161015234159) do
 
   create_table "matches", force: :cascade do |t|
     t.integer  "winning_player_id"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20161013224158) do
     t.string   "name"
     t.integer  "won",                default: 0
     t.integer  "lost",               default: 0
-    t.integer  "drawn",              default: 0
     t.decimal  "winning_percentage", default: "0.0"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
