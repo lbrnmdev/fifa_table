@@ -5,6 +5,7 @@ class Player < ApplicationRecord
   validates :lost, numericality: { greater_than_or_equal_to: 0 }
   validates :drawn, numericality: { greater_than_or_equal_to: 0 }
   validates :winning_percentage, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 1 }
+  default_scope -> { order(winning_percentage: :desc) }
 
   # Keep this to be used in building forms maybe?
   has_many :won_matches, class_name: "Match", foreign_key: :winning_player_id
