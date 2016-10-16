@@ -3,6 +3,7 @@ class PlayersController < ApplicationController
   end
 
   def new
+    @player = Player.new
   end
 
   def show
@@ -10,4 +11,10 @@ class PlayersController < ApplicationController
 
   def edit
   end
+
+  private
+
+    def player_params
+      params.require(:player).permit(:name)
+    end
 end
