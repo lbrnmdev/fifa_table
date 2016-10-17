@@ -1,35 +1,7 @@
-<h1>Players#index</h1>
-<p>Find me in app/views/players/index.html.erb</p>
-
 <div class="row">
   <div class="col-md-4">
-
-    <table class="table table-hover table-inverse table-responsive">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>name</th>
-          <th>played</th>
-          <th>won</th>
-          <th>lost</th>
-          <th>win [%]</th>
-        </tr>
-      </thead>
-
-      <tbody>
-
-        <% @players.each_with_index do |player, index| %>
-          <tr>
-            <th scope="row"><%= index %></th>
-            <td><%= player.name %></td>
-            <td><%= player.won + player.lost %></td>
-            <td><%= player.won %></td>
-            <td><%= player.lost %></td>
-            <td><%= player.winning_percentage %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
+    <h1>Player ranking</h1>
+    <p class="text-muted">Players ranked by win percentage</p>
+    <%= render 'league_table' %>
   </div>
 </div>
