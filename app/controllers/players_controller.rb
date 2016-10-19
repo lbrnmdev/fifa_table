@@ -27,6 +27,18 @@ class PlayersController < ApplicationController
   end
 
   def edit
+    @player = Player.find(params[:id])
+  end
+
+  # TODO Implement JS where form collapses beneath player card
+  def update
+    @player = Player.find(params[:id])
+    if @player.update_attributes(player_params)
+      flash[:success] = "player info updated!"
+      redirect_to @player
+    else
+      render action: "edit"
+    end
   end
 
   private
