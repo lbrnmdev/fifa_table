@@ -7,8 +7,8 @@ class Player < ApplicationRecord
   default_scope -> { order(winning_percentage: :desc) }
 
   # Keep this to be used in building forms maybe?
-  has_many :won_matches, class_name: "Match", foreign_key: :winning_player_id
-  has_many :lost_matches, class_name: "Match", foreign_key: :losing_player_id
+  has_many :won_matches, class_name: "Match", foreign_key: :winning_player_id, dependent: :destroy
+  has_many :lost_matches, class_name: "Match", foreign_key: :losing_player_id, dependent: :destroy
 
   # return all the player's matches
   def matches
