@@ -15,7 +15,7 @@
     <% @players.each_with_index do |player, index| %>
       <tr>
         <th scope="row"><%= index + 1 %></th>
-        <td><%= player.name %></td>
+        <td><%= link_to player.name, player %></td>
         <td><%= player.won + player.lost %></td>
         <td><%= player.won %></td>
         <td><%= player.lost %></td>

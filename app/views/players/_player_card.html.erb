@@ -1,0 +1,12 @@
+<div class="card card-outline-primary text-xs-center">
+  <h3 class="card-header"><%= @player.name %></h3>
+  <div class="card-block">
+    <h4 class="card-title"><%= @player.winning_percentage * 100 %>%</h4>
+    <p class="card-text">
+      <%= "#{pluralize(@player.won, 'win')} and #{pluralize(@player.lost, 'loss')}" %>
+    </p>
+    <p class="card-text">
+      <small class="text-muted">Last match was ..... ago</small>
+    </p>
+  </div>
+</div>
