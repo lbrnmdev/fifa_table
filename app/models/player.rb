@@ -3,7 +3,6 @@ class Player < ApplicationRecord
   validates :name, presence: true, uniqueness: {case_sensitive: false}
   validates :won, numericality: { greater_than_or_equal_to: 0 }
   validates :lost, numericality: { greater_than_or_equal_to: 0 }
-  validates :drawn, numericality: { greater_than_or_equal_to: 0 }
   validates :winning_percentage, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 1 }
   default_scope -> { order(winning_percentage: :desc) }
 

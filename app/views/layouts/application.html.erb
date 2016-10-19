@@ -18,7 +18,14 @@
     <%= render 'shared/navbar' %>
 
     <div class="container-fluid" id="main-content">
+
+      <!-- flash alerts -->
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
+      <% end %>
+
       <%= yield %>
+      
     </div>
   </body>
 </html>
