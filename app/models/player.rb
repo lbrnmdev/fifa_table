@@ -12,7 +12,7 @@ class Player < ApplicationRecord
 
   # return all the player's matches
   def matches
-    Match.where("winning_player_id = ? OR losing_player_id = ?", self.id, self.id)
+    Match.where("winning_player_id = ? OR losing_player_id = ?", self.id, self.id).order(created_at: :desc)
   end
 
   def matches_won_against opponent
