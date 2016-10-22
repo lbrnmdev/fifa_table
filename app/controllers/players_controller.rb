@@ -1,6 +1,7 @@
 class PlayersController < ApplicationController
   def index
     @players = Player.all
+    @matches = Match.take(10) # 10 most recent matches
   end
 
   def new
