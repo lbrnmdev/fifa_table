@@ -18,9 +18,19 @@ class MatchesController < ApplicationController
   end
 
   def show
+    @match = Match.find(params[:id])
   end
 
   def edit
+  end
+
+  def destroy
+    @match = Match.find(params[:id])
+    winner = @match.winning_player.name
+    loser = @match.losing_player.name
+    @match.destroy!
+    flash[:alert] = "#{winner}'s win against #{loser} has been deleted"
+    redirect_to players_url
   end
 
   private
