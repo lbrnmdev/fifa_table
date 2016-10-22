@@ -1,8 +1,10 @@
 <div class="row">
   <div class="col-md-4">
+    <h1 class="display-4 text-xs-center">Player</h1>
     <%= render 'player_card' %>
   </div>
   <div class="col-md-8">
+    <h1 class="display-4 text-xs-center">Matches</h1>
     <% @player.matches.each do |match| %>
       <%= render match %>
     <% end %>

@@ -1,54 +1,16 @@
-<div class="card card-outline-primary text-xs-center">
+<!-- single card implementation -->
+<div class="card card-outline-primary">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><h2><small>winner:</small> <b><%= link_to match.winning_player.name, match.winning_player, class: 'text-success' %></b></h2></li>
+    <li class="list-group-item"><h2><small>loser:</small> <b><%= link_to match.losing_player.name, match.losing_player, class: 'text-danger' %></b></h2></li>
+  </ul>
   <div class="card-block">
-    <div class="row">
-      <div class="col-sm-5">
-        <div class="card card-outline-success text-xs-center">
-          <div class="card-header">
-            <h4>winner</h4>
-          </div>
-          <div class="card-block">
-            <h1 class="card-title"><%= link_to match.winning_player.name, match.winning_player, class: 'text-success' %></h1>
-            <p class="card-text">
-              <small class="text-muted"><i>winning percentage: </i><b><%= match.winning_player.winning_percentage * 100 %>%</b></small>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-2">
-        <div class="card card-outline-secondary text-xs-center">
-          <div class="card-block">
-            <blockquote class="card-blockquote">
-              <h2><i>V</i></h2>
-            </blockquote>
-          </div>
-        </div>
-        <div class="card card-outline-primary text-xs-center">
-          <div class="card-block">
-            <h6 class="card-title text-muted">
-              overall record
-            </h6>
-            <p class="card-text">
-              <%= "#{match.winning_player.name} #{match.winning_player.matches_won_against(match.losing_player).count}" %> - <%= "#{match.losing_player.matches_won_against(match.winning_player).count} #{match.losing_player.name}" %>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-5">
-        <div class="card card-outline-danger text-xs-center">
-          <div class="card-header">
-            <h4>loser</h4>
-          </div>
-          <div class="card-block">
-            <h1 class="card-title"><%= link_to match.losing_player.name, match.losing_player, class: 'text-danger' %></h1>
-            <p class="card-text">
-              <small class="text-muted"><i>winning percentage: </i><b><%= match.losing_player.winning_percentage * 100 %>%</b></small>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <h5 class="card-title text-muted">overall record</h5>
+    <p class="card-title">
+      <%= "#{match.winning_player.name}" %> <b><%= "#{match.winning_player.matches_won_against(match.losing_player).count}" %></b> - <b><%= "#{match.losing_player.matches_won_against(match.winning_player).count}" %></b> <%= "#{match.losing_player.name}" %>
+    </p>
   </div>
-  <div class="card-footer text-muted">
+  <div class="card-footer text-muted text-xs-center">
     <%= match.created_at %>
   </div>
 </div>
