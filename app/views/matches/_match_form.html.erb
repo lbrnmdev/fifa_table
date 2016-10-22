@@ -1,0 +1,15 @@
+<%= form_for @match, html: { role: "form" } do |f| %>
+  <div class="form-group row">
+    <%= f.label :winning_player, "winner", class:'col-xs-2 col-form-label text-success' %>
+    <div class="col-xs-10">
+      <%= f.collection_select :winning_player, Player.all, :id, :name, {prompt: "Select the winning player"}, {class: "form-control custom-select text-success"} %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label :losing_player, "loser", class:'col-xs-2 col-form-label text-danger' %>
+    <div class="col-xs-10">
+      <%= f.collection_select :losing_player, Player.all, :id, :name, {prompt: "Select the losing player"}, {class: "form-control custom-select text-danger"} %>
+    </div>
+  </div>
+  <%= f.submit 'save', class: 'btn btn-primary btn-block' %>
+<% end %>
