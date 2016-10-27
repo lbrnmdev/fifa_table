@@ -56,3 +56,9 @@ ruby "2.3.1"
 group :production do
   gem 'pg'
 end
+
+# add for tooltips and popovers in bootstrap 4, also to stop that damn
+# js error complaint, which is mayyyybe causing delete's in heroku to not work
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
