@@ -48,6 +48,15 @@ class PlayersController < ApplicationController
     redirect_to players_url
   end
 
+  # TODO Handle invalid player selection
+  def versus
+    @player1 = Player.find(params[:versus][:player1_id])
+    @player2 = Player.find(params[:versus][:player2_id])
+    respond_to do |format|
+      format.js {}
+    end
+  end
+
   private
 
     def player_params
