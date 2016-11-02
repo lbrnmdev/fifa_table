@@ -21,11 +21,14 @@
 
       <!-- flash alerts -->
       <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
+        <%= content_tag :div, class: "alert #{alert_for(name)}" do %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <%= msg %>
+        <% end %>
       <% end %>
 
       <%= yield %>
-      
+
     </div>
   </body>
 </html>
