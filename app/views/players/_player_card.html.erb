@@ -10,13 +10,7 @@
     </p>
   </div>
   <div class="card-footer text-muted">
-    <div class="row">
-      <div class="col-xs-6">
-        <%= link_to 'edit', edit_player_path(@player) %>
-      </div>
-      <div class="col-xs-6">
-        <%= link_to 'delete', @player, method: :delete, data: {confirm: "Delete \"#{@player.name}\"?"} %>
-      </div>
-    </div>
+    <%= link_to 'edit', edit_player_path(@player), class:'card-link' %>
+    <%= link_to 'delete', @player, method: :delete, data: {confirm: "Delete \"#{@player.name}\"?"} %>
   </div>
 </div>
