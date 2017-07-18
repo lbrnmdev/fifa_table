@@ -51,7 +51,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Specify ruby version for Heroku
-ruby "2.3.1"
+ruby "2.4.1"
 
 group :production do
   gem 'pg'
