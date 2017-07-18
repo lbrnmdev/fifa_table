@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+FifaTable
+===================
+Players are currently ranked by win percentage (awful we know, Colley+Mussey method coming soon)
 
-Things you may want to cover:
+# Setup
+ 1. Clone repo
+ 2. `Bundle install`
+ 3. Run migrations
+ 4. Start rails server
+ 5. Go to `localhost:3000` in browser
 
-* Ruby version
+# Usage
+ 1. Create 2 or more players
+ 2. Add results of games played between them
+ 3. See players ranked!
 
-* System dependencies
+ > **Note:**
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ > - Update to bootstrap version has caused a some page elements to go wonky.
